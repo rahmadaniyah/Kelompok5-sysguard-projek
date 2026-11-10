@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+sysguard-web:
+build: .
+container_name: sysguard-app
+ports:
+- "8080:80"
+volumes:
+- app_data:/var/www/html
+networks:
+- sysguard-net
+deploy:
+resources:
+limits:
+cpus: '0.50'
+memory: 256M
+volumes:
+app_data:
+networks:
+sysguard-net:
+driver: bridge
